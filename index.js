@@ -15,6 +15,18 @@ const CounterReducer = (
         counter: initialState.counter - 1
     }
   }
+  
+  if(action.type=='incrementby2'){
+    return{
+        counter: initialState.counter + 2
+    }
+  }
+  
+  if(action.type=='decrementby2'){
+    return{
+        counter: initialState.counter - 2
+    }
+  }
 };
 
 const store = redux.createStore(CounterReducer);
@@ -25,3 +37,7 @@ const CounterSubcription = () => {
 store.subscribe(CounterSubcription);
 store.dispatch({ type: "increment" });
 store.dispatch({ type: "decrement" });
+
+store.dispatch({ type: "incrementby2" });
+
+store.dispatch({ type: "decrementby2" });
